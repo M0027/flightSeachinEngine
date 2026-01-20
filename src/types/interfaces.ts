@@ -11,17 +11,20 @@ export interface SearchParams {
 // }
 
 export interface Flight {
+  id: number;
   price: number;
   stops: number;
   airline: string;
+  departure: string;
+  arrival: string;
+  duration: string;
+  departureTime: string;
   returnDate?: string | null;
-  // allow additional properties if present
-  [key: string]: unknown;
 }
 
 export interface Filters {
   priceRange: [number, number];
   stops: number | "all";
   airline: string | "all";
-  tripType: "roundtrip" | "oneway" | string;
+  tripType: "oneway" | "roundtrip" | string;
 }

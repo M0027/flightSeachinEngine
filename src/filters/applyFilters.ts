@@ -1,6 +1,11 @@
 import { Flight , Filters} from "../types/interfaces";
 
 export function applyFilters(flights: Flight[], filters: Filters): Flight[] {
+
+
+    console.log("Voooos:", flights); 
+    console.log("filters:", filters);
+    // console.log("Applying filters:", filters);
   return flights.filter((flight) => {
     // prices
     if (

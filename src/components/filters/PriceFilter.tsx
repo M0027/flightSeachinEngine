@@ -7,12 +7,12 @@ export function PriceFilter() {
 
   return (
     <div style={{ marginBottom: 16 }}>
-      <label>Preço máximo: {filters.priceRange[1]}€</label>
+      <label>max price: {filters.priceRange?.[1] ?? 0}€</label>
       <input
         type="range"
         min={0}
         max={2000}
-        value={filters.priceRange[1]}
+        value={filters.priceRange?.[1] ?? 0}
         onChange={(e) =>
           setFilters({
             ...filters,

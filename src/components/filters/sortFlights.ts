@@ -1,12 +1,4 @@
 import { Flight  } from "../../types/interfaces";
-// export interface Flight {
-//   price: number;
-//   departureTime: string | Date;
-//   // other fields allowed
-//   [key: string]: any;
-
-
-// }
 
 
 export function sortFlights(flights: Flight[]): Flight[] {

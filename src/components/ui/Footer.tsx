@@ -21,32 +21,32 @@ export default function Footer() {
             FlightNow
           </h2>
           <p className="text-sm opacity-80 leading-relaxed">
-            Encontre os melhores voos com rapidez,
-            clareza e preços transparentes.
+            Find the best flights quickly,
+            with clarity and transparent prices.
           </p>
         </div>
 
         {/* LINKS */}
         <div>
           <h3 className="font-semibold mb-3">
-            Navegação
+            Navigation
           </h3>
           <ul className="space-y-2 text-sm opacity-90">
-            <li className="hover:opacity-70 cursor-pointer">Buscar voos</li>
-            <li className="hover:opacity-70 cursor-pointer">Ofertas</li>
-            <li className="hover:opacity-70 cursor-pointer">Conta</li>
+            <li className="hover:opacity-70 cursor-pointer">Search flights</li>
+            <li className="hover:opacity-70 cursor-pointer">fiter flights</li>
+            {/* <li className="hover:opacity-70 cursor-pointer">Account</li> */}
           </ul>
         </div>
 
         {/* INFO */}
         <div>
           <h3 className="font-semibold mb-3">
-            Informações
+            Information
           </h3>
           <ul className="space-y-2 text-sm opacity-90">
-            <li className="hover:opacity-70 cursor-pointer">Sobre</li>
-            <li className="hover:opacity-70 cursor-pointer">Privacidade</li>
-            <li className="hover:opacity-70 cursor-pointer">Termos</li>
+            <li className="hover:opacity-70 cursor-pointer">About</li>
+            <li className="hover:opacity-70 cursor-pointer">Privacy</li>
+            <li className="hover:opacity-70 cursor-pointer">Terms</li>
           </ul>
         </div>
       </div>
@@ -60,7 +60,7 @@ export default function Footer() {
           py-4
         "
       >
-        © {new Date().getFullYear()} FlightNow — Todos os direitos reservados
+        © {new Date().getFullYear()} FlightNow — All rights reserved
       </div>
     </footer>
   );

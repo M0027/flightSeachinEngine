@@ -1,3 +1,4 @@
+'use client';
 import { useFlightStore } from "../../store/useFlightStore";
 import { applyFilters } from "../../filters/applyFilters";
 import { sortFlights } from "../../components/filters/sortFlights";
@@ -11,16 +12,19 @@ export function FlightList() {
 
 const gridStyle = {
   display: "grid",
-  gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-  gap: 16,
+  gridTemplateColumns: "repeat(auto-fill, minmax(290px, 1fr))",
+  gap: 0,
 };
 
 
   
   // memoize com useMemo se necessário
   const visibleFlights = sortFlights(
-    applyFilters(flights, filters)
+     applyFilters(flights, filters)
   );
+
+  console.log("flight:",flights)
+  console.log("ssssss",visibleFlights)
 
   if (loading) {
     return (
@@ -33,7 +37,7 @@ const gridStyle = {
   }
 
   if (!visibleFlights.length) {
-    return <p>Nenhum voo encontrado.</p>;
+    return <p>No flights found. Try other date!</p>;
   }
 
   return (

@@ -3,7 +3,9 @@
  * Function to normalize raw Amadeus data
  */
 export function normalizeFlights(flightOffers: any[]) {
+  console.log("amadeus dados:",flightOffers)
   return flightOffers.map((offer) => {
+
     const itinerary = offer.itineraries[0]; 
     const segment = itinerary.segments[0]; 
 
@@ -16,7 +18,8 @@ export function normalizeFlights(flightOffers: any[]) {
       duration: itinerary.duration,
       airline: segment.carrierCode,
       flightNumber: segment.number,
-      price: offer.price.total,
+      price: Number(offer.price.total),
+      stops: segment.numberOfStops,
       currency: offer.price.currency,
     };
   });

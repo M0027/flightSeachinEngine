@@ -20,10 +20,10 @@ export default function Header() {
 
         {/* Desktop menu */}
         <nav className="hidden md:flex gap-6 text-white">
-          <a className="hover:opacity-80 cursor-pointer">Buscar</a>
-          <a className="hover:opacity-80 cursor-pointer">Ofertas</a>
-          <a className="hover:opacity-80 cursor-pointer">Conta</a>
-        </nav>
+          <a href="/" className="hover:opacity-80 cursor-pointer">Home</a>
+          <a href="/searchFlight" className="hover:opacity-80 cursor-pointer">Search</a>
+          <a href="" className="hover:opacity-80 cursor-pointer">About</a>
+          </nav>
 
         {/* Mobile menu button */}
         <button
@@ -54,9 +54,9 @@ export default function Header() {
 
           {/* Menu items */}
           <nav className="mt-20 flex flex-col gap-6 px-6 text-white text-lg">
-            <a className="border-b border-white/20 pb-2">Buscar</a>
-            <a className="border-b border-white/20 pb-2">Ofertas</a>
-            <a className="border-b border-white/20 pb-2">Conta</a>
+            <a href="/" className="border-b border-white/20 pb-2">Home</a>
+            <a href="/searchFlight/" className="border-b border-white/20 pb-2">Search</a>
+            <a href="/" className="border-b border-white/20 pb-2">Sobre</a>
           </nav>
         </div>
       )}

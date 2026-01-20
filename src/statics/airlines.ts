@@ -4,3 +4,6 @@ export const airlineLogos: Record<string, string> = {
   AF: "https://content.airhex.com/content/logos/airlines_AF_200_200_s.png",
   LH: "https://content.airhex.com/content/logos/airlines_LH_200_200_s.png",
 };
+
+export const airlines =
+ ["TP", "IB", "AF", "LH"];

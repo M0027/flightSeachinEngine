@@ -7,7 +7,7 @@ export function IdaEVola() {
 
   return (
     <div style={{ display: "flex", gap: 12 }}>
-      <button
+      <button className="px-2 py-1 rounded-l"
         onClick={() =>
           setFilters({ ...filters, tripType: "oneway" })
         }
@@ -16,13 +16,18 @@ export function IdaEVola() {
             filters.tripType === "oneway"
               ? colors.primary
               : colors.grayLight,
-          color: colors.secondary,
+          color: 
+          filters.tripType === "oneway"
+          ? colors.grayLight
+          : colors.primary,
+          
         }}
       >
-        Só ida
+       oneway
       </button>
 
       <button
+      className="px-2 py-1 rounded-l"
         onClick={() =>
           setFilters({ ...filters, tripType: "roundtrip" })
         }
@@ -31,10 +36,13 @@ export function IdaEVola() {
             filters.tripType === "roundtrip"
               ? colors.primary
               : colors.grayLight,
-          color: colors.secondary,
+
+          color:  filters.tripType === "roundtrip"
+          ? colors.grayLight
+          : colors.primary
         }}
       >
-        Ida e volta
+        roundtrip
       </button>
     </div>
   );

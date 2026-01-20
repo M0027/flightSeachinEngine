@@ -1,8 +1,20 @@
 import { colors } from "../../statics/color";
 import { airlineLogos } from "../../statics/airlines";
+import { formatDuration } from "../../utils/formatDuration";
+import { useRouter } from 'next/navigation';
+import { useFlightStore } from "../../store/useFlightStore";
+import { Flight } from "../../types/interfaces";
 
-export function FlightCard({ flight }: { flight: any }) {
+export function FlightCard({ flight }: { flight: Flight }) {
+  const router = useRouter();
   const logo = airlineLogos[flight.airline];
+  const formattedDuration = formatDuration(flight.duration);
+  const setSelectedFlight = useFlightStore((state) => state.setSelectedFlight);
+
+  const handleDitaisl = () => {
+    setSelectedFlight(flight);
+    router.push(`/fligtDetals`);
+  };
 
   return (
     <div
@@ -11,6 +23,8 @@ export function FlightCard({ flight }: { flight: any }) {
         borderRadius: 14,
         padding: 16,
         marginBottom: 16,
+        marginLeft: 0,
+        marginRight: 0,
         boxShadow: "0 6px 16px rgba(0,0,0,0.12)",
       }}
     >
@@ -51,8 +65,8 @@ export function FlightCard({ flight }: { flight: any }) {
 
       {/* ROUTE */}
       <div style={{ marginTop: 12, fontSize: 15 }}>
-        <span>{flight.origin}</span> →
-        <span> {flight.destination}</span>
+        <span>{flight.departure}</span> →
+        <span> {flight.arrival}</span>
       </div>
 
       {/* DETAILS */}
@@ -66,13 +80,15 @@ export function FlightCard({ flight }: { flight: any }) {
         }}
       >
         <span>
-          {flight.stops === 0 ? "Direto" : `${flight.stops} paradas`}
+          {flight?.stops === 0 ? "Diret" : `${flight.stops} paradas`}
         </span>
-        <span>{flight.duration}</span>
+        <span>{formattedDuration}</span>
       </div>
 
       {/* ACTION */}
       <button
+
+      onClick={handleDitaisl}
         style={{
           marginTop: 14,
           width: "100%",
@@ -85,7 +101,7 @@ export function FlightCard({ flight }: { flight: any }) {
           cursor: "pointer",
         }}
       >
-        Selecionar voo
+        Ditails
       </button>
     </div>
   );
