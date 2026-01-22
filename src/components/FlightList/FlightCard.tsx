@@ -1,5 +1,5 @@
 import { colors } from "../../statics/color";
-import { airlineLogos } from "../../statics/airlines";
+import { airline } from "../../statics/airlines";
 import { formatDuration } from "../../utils/formatDuration";
 import { useRouter } from 'next/navigation';
 import { useFlightStore } from "../../store/useFlightStore";
