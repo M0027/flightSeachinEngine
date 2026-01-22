@@ -1,5 +1,5 @@
 import { colors } from "../../statics/color";
-import { airline } from "../../statics/airlines";
+import { airlines } from "../../statics/airlines";
 import { formatDuration } from "../../utils/formatDuration";
 import { useRouter } from 'next/navigation';
 import { useFlightStore } from "../../store/useFlightStore";
@@ -7,7 +7,7 @@ import { Flight } from "../../types/interfaces";
 
 export function FlightCard({ flight }: { flight: Flight }) {
   const router = useRouter();
-  const logo = airlineLogos[flight.airline];
+  const logo = airlines[flight.airline as keyof typeof airlines];
   const formattedDuration = formatDuration(flight.duration);
   const setSelectedFlight = useFlightStore((state) => state.setSelectedFlight);
 
