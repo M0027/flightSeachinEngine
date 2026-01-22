@@ -1,5 +1,5 @@
 "use client";
-
+import { useState } from "react";
 import { useFlightStore } from "../../store/useFlightStore";
 import { useFlights } from "../../hooks/useFlights";
 import { useRouter } from "next/navigation";
@@ -10,19 +10,31 @@ import { airports } from "../../statics/airports";
 export default function SearchForm() {
   const router = useRouter();
   const { searchParams } = useFlightStore();
+  const [error, setError] = useState<string | null>(null);
+
 
   function getAirportName(code?: string) {
-  if (!code) return "Selecionar";
-  return airports.find(a => a.code === code)?.name ?? code;
-}
+    if (!code) return "Selecionar";
+    return airports.find(a => a.code === code)?.name ?? code;
+  }
 
-console.log("searchParams no SearchForm:", searchParams);
 
 
   const { searchFlights } = useFlights();
   const setSearchParams = useFlightStore((s) => s.setSearchParams);
 
   const handleSearch = () => {
+
+    if (
+      !searchParams.origin ||
+      !searchParams.destination ||
+      !searchParams.departureDate ||
+      !searchParams.adults
+    ) {
+      setError("Please complete all required fields to search for flights.");
+      return;
+    }
+
 
     setSearchParams(searchParams);
 
@@ -35,12 +47,12 @@ console.log("searchParams no SearchForm:", searchParams);
   const cards = [
     {
       label: "Departure",
-      value:  getAirportName(searchParams.origin) ?? "Select departure",
+      value: getAirportName(searchParams.origin) ?? "Select departure",
       path: "/search/origin",
     },
     {
       label: "Destination",
-      value:getAirportName(searchParams.destination) ?? "Select destination",
+      value: getAirportName(searchParams.destination) ?? "Select destination",
       path: "/search/destination",
     },
     {
@@ -51,8 +63,8 @@ console.log("searchParams no SearchForm:", searchParams);
     {
       label: "Passengers",
       value: searchParams.adults
-    ? `${searchParams.adults} passenger(s)`
-    : "Select passengers",
+        ? `${searchParams.adults} passenger(s)`
+        : "Select passengers",
       path: "/search/passengers",
     },
   ];
@@ -69,7 +81,7 @@ console.log("searchParams no SearchForm:", searchParams);
           <button
             key={card.label}
             onClick={() => router.push(card.path)}
-            style={{background:colors.primary}}
+            style={{ background: colors.primary }}
             className="
               flex flex-col justify-center
               h-[72px]
@@ -83,7 +95,7 @@ console.log("searchParams no SearchForm:", searchParams);
               focus:outline-none
             "
           >
-            <span style={{color:colors.secondary}} className="text-xl font-semibold">
+            <span style={{ color: colors.secondary }} className="text-xl font-semibold">
               {card.label}
             </span>
 
@@ -91,7 +103,7 @@ console.log("searchParams no SearchForm:", searchParams);
               className="
                 text-m font-medium italic
                 truncate
-              "  style={{color:colors.secondary}}
+              "  style={{ color: colors.secondary }}
             >
               {card.value}
             </span>
@@ -119,6 +131,12 @@ console.log("searchParams no SearchForm:", searchParams);
           <Search size={26} className="mr-2 " />
           Search
         </button>
+        {error && (
+          <div className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+            {error}
+          </div>
+        )}
+
       </div>
     </div>
   );

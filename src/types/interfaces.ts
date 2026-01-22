@@ -3,12 +3,9 @@ export interface SearchParams {
   destination: string;
   departureDate: string;
   adults?: number;
-}
 
-// export interface Filters {
-//   maxPrice?: number;
-//   airlines?: string[];
-// }
+  
+}
 
 export interface Flight {
   id: number;
@@ -42,3 +39,11 @@ export interface SearchValues  {
 export interface SearchFormProps {
   values: SearchValues;
 };
+
+export interface SuggestionDestinationCardProps {
+  city: string;
+  touristSpot: string;
+  imageUrl: string;
+  priority?: boolean;
+}
+

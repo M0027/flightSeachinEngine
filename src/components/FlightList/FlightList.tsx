@@ -21,7 +21,6 @@ const gridStyle = {
 
 
   
-  // memoize com useMemo se necessário
   const visibleFlights = sortFlights(
      applyFilters(flights, filters)
   );

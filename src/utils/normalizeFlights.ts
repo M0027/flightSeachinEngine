@@ -3,7 +3,6 @@
  * Function to normalize raw Amadeus data
  */
 export function normalizeFlights(flightOffers: any[]) {
-  console.log("amadeus dados:",flightOffers)
   return flightOffers.map((offer) => {
 
     const itinerary = offer.itineraries[0]; 

@@ -1,5 +1,6 @@
 import { colors } from "../../statics/color";
 import { airlines } from "../../statics/airlines";
+import AirlineLogo from "../ui/AirlineLogo";
 import { formatDuration } from "../../utils/formatDuration";
 import { useRouter } from 'next/navigation';
 import { useFlightStore } from "../../store/useFlightStore";
@@ -39,15 +40,8 @@ export function FlightCard({ flight }: { flight: Flight }) {
         {/* Airline */}
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           {logo && (
-            <img
-              src={logo}
-              alt={flight.airline}
-              style={{
-                width: 36,
-                height: 36,
-                objectFit: "contain",
-              }}
-            />
+            <AirlineLogo code={flight.airline} size={36} />
+           
           )}
           <strong>{flight.airline}</strong>
         </div>

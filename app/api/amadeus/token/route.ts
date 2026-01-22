@@ -23,10 +23,18 @@ export async function POST() {
 
         return NextResponse.json(response.data);
     } catch (error: any) {
-        console.log("Erro real do Amadeus:", error.response?.data || error.message);
-        return NextResponse.json(
-            { message: "Erro ao obter token Amadeus" },
-            { status: 500 }
-        );
+        const amadeusError = error.response?.data;
+        console.error("Erro real do Amadeus:", amadeusError || error.message);
+
+        const statusCode = error.response?.status || 500;
+
+        // Em desenvolvimento retornamos o payload do Amadeus para ajudar a debugar.
+        // Em produção, devolvemos uma mensagem genérica para não vazar detalhes.
+        const payload =
+            process.env.NODE_ENV !== "production"
+                ? { message: "Erro ao obter token Amadeus", amadeusError }
+                : { message: "Erro ao obter token Amadeus" };
+
+        return NextResponse.json(payload, { status: statusCode });
     }
 }

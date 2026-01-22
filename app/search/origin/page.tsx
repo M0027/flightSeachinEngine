@@ -50,88 +50,68 @@ export default function OriginPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 px-4 pt-6">
-            {/* Header */}
-            <header className="mb-6">
-                <h1 className="text-lg font-semibold text-gray-900">
-                    departure location
-                </h1>
-                <p className="text-sm text-gray-500">
-                    choose the departure airport
-                </p>
-            </header>
+        <div className="min-h-screen bg-gray-50 px-4 pt-6 pb-28">
+            <div className="mx-auto w-full max-w-xl">
+                {/* Header */}
+                <header className="mb-6">
+                    <h1 className="text-lg font-semibold text-gray-900">departure location</h1>
+                    <p className="text-sm text-gray-500">choose the departure airport</p>
+                </header>
 
-            {/* Input */}
-            <div className="mb-4">
-                <input
-                    type="text"
-                    placeholder="Digite cidade ou código (ex: LIS)"
-                    value={query}
-                    onChange={(e) => {
-                        setQuery(e.target.value);
-                        setSelected(null);
-                    }}
-                    className="
-            w-full rounded-xl border border-gray-200
-            px-4 py-3
-            text-sm
-            shadow-sm
-            focus:border-transparent
-            focus:outline-none
-            focus:ring-2
-          "
-                    style={{ background: colors.grayLight }}
-                />
-            </div>
+                {/* Input */}
+                <div className="mb-4">
+                    <input
+                        type="text"
+                        placeholder="Digite cidade ou código (ex: LIS)"
+                        value={query}
+                        onChange={(e) => {
+                            setQuery(e.target.value);
+                            setSelected(null);
+                        }}
+                        className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm shadow-sm focus:border-transparent focus:outline-none focus:ring-2"
+                        style={{ background: colors.grayLight }}
+                    />
+                </div>
 
-            {/* Sugestões */}
-            <div className="space-y-2">
-                {filteredAirports.map((airport) => {
-                    const isSelected = selected?.code === airport.code;
+                {/* Sugestões */}
+                <div className="space-y-2">
+                    {filteredAirports.map((airport) => {
+                        const isSelected = selected?.code === airport.code;
 
-                    return (
-                        <button
-                            key={airport.code}
-                            onClick={() => handleSelect(airport)}
-                            className={`
-                w-full rounded-xl px-4 py-3 text-left
-                transition-all duration-150
-                ${isSelected
-                                    ? "bg-blue-50 border border-blue-500"
-                                    : "bg-white border border-gray-200 hover:shadow-sm"}
-              `}
-                        >
-                            <div className="flex justify-between items-center">
-                                <div>
-                                    <p className="text-sm font-medium text-gray-900">
-                                        {airport.name}
-                                    </p>
-                                    <p className="text-xs text-gray-500">
-                                        {airport.code}
-                                    </p>
+                        return (
+                            <button
+                                key={airport.code}
+                                onClick={() => handleSelect(airport)}
+                                className={`w-full rounded-xl px-4 py-3 text-left transition-all duration-150 ${
+                                    isSelected
+                                        ? "bg-blue-50 border border-blue-500"
+                                        : "bg-white border border-gray-200 hover:shadow-sm"
+                                }`}
+                            >
+                                <div className="flex justify-between items-center">
+                                    <div>
+                                        <p className="text-sm font-medium text-gray-900">{airport.name}</p>
+                                        <p className="text-xs text-gray-500">{airport.code}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </button>
-                    );
-                })}
+                            </button>
+                        );
+                    })}
+                </div>
             </div>
 
             {/* Botão OK */}
             <div className="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-[0_-4px_12px_rgba(0,0,0,0.06)]">
-                <button
-                    disabled={!selected}
-                    onClick={() => handleConfirm()}
-                    className="
-            w-full rounded-xl py-3
-            font-semibold text-white
-            transition-all duration-200
-            disabled:opacity-50
-            disabled:cursor-not-allowed
-          "
-                    style={{ backgroundColor: colors.primary }}
-                >
-                    Select
-                </button>
+                <div className="mx-auto w-full max-w-xl px-4">
+                    <button
+                        disabled={!selected}
+                        onClick={() => handleConfirm()}
+                        className="w-full rounded-xl py-3 font-semibold text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                        style={{ backgroundColor: colors.primary }}
+                    >
+                        Select
+                    </button>
+                </div>
             </div>
         </div>
     );

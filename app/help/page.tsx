@@ -1,49 +1,129 @@
 'use client';
 
-import React from 'react';
+import Header from "../../src/components/ui/Header";
+import Footer from "../../src/components/ui/Footer";
+import { colors } from "../../src/statics/color";
 
-const HelpPage: React.FC = () => {
+export default function HelpPage() {
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col items-center justify-center p-4">
-      <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 max-w-2xl w-full text-gray-900 dark:text-gray-100">
-        <h1 className="text-4xl font-bold text-indigo-700 dark:text-indigo-400 mb-6 text-center">Help Center</h1>
+    <div className="flex flex-col min-h-screen bg-gray-50">
+      <Header />
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-indigo-600 dark:text-indigo-300 mb-3">Welcome to Flight Search Engine Help!</h2>
-          <p className="mb-4 leading-relaxed">
-            Our Flight Search Engine helps you find the best flights for your travels. Easily search for one-way or round-trip flights by specifying your origin, destination, and desired dates.
-          </p>
-          <p className="leading-relaxed">
-            We provide a user-friendly interface to quickly browse through flight options and apply various filters to narrow down your results based on price, number of stops, and airlines.
-          </p>
-        </section>
+      <main className="flex-1 px-4 py-10">
+        <div className="max-w-5xl mx-auto">
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-indigo-600 dark:text-indigo-300 mb-3">How to Use</h2>
-          <ul className="list-disc list-inside space-y-2 leading-relaxed">
-            <li><strong>Search for Flights:</strong> Enter your departure and arrival cities, select your travel dates, and choose the number of adults traveling.</li>
-            <li><strong>Filter Results:</strong> Use the provided filters to refine your search by price range, number of stops, and preferred airline.</li>
-            <li><strong>View Flight Details:</strong> Click on any flight card to see more detailed information about the selected flight.</li>
-            <li><strong>Understand the Chart:</strong> The bar chart provides a quick overview of average flight prices per airline, helping you make informed decisions.</li>
-          </ul>
-        </section>
+          {/* Title */}
+          <header className="text-center mb-12">
+            <h1
+              className="text-3xl md:text-4xl font-bold mb-4"
+              style={{ color: colors.primary }}
+            >
+              Help Center
+            </h1>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Everything you need to know to search, compare and choose the best flights.
+            </p>
+          </header>
 
-        <section>
-          <h2 className="text-2xl font-semibold text-indigo-600 dark:text-indigo-300 mb-3">Troubleshooting & Support</h2>
-          <p className="mb-4 leading-relaxed">
-            If you encounter any issues or have questions, please ensure your internet connection is stable and try refreshing the page. For persistent problems, double-check your search parameters.
-          </p>
-          <p className="leading-relaxed">
-            This application is a demonstration project, and for advanced support or bug reporting, please refer to the project's source code repository or contact the developer directly.
-          </p>
-        </section>
+          {/* Content Card */}
+          <div className="bg-white rounded-2xl shadow-md p-6 md:p-10 space-y-10">
 
-        <p className="text-center text-gray-500 dark:text-gray-400 mt-8 text-sm">
-          Thank you for using our Flight Search Engine!
-        </p>
-      </div>
+            {/* Section */}
+            <section>
+              <h2
+                className="text-xl md:text-2xl font-semibold mb-3"
+                style={{ color: colors.secondary }}
+              >
+                Welcome to the Flight Search Engine
+              </h2>
+              <p className="text-gray-700 leading-relaxed mb-3">
+                Our Flight Search Engine helps you find the best flight options for your journey.
+                You can search for one-way or round-trip flights by selecting your origin,
+                destination, travel dates, and number of passengers.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                The interface is designed to be fast, simple, and intuitive — allowing you to
+                focus on what matters most: finding the right flight.
+              </p>
+            </section>
+
+            {/* Section */}
+            <section>
+              <h2
+                className="text-xl md:text-2xl font-semibold mb-4"
+                style={{ color: colors.secondary }}
+              >
+                How to Use
+              </h2>
+
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex gap-2">
+                  <span className="font-semibold">•</span>
+                  <span>
+                    <strong>Search for Flights:</strong> Choose your departure and arrival cities,
+                    select travel dates, and define the number of adults.
+                  </span>
+                </li>
+
+                <li className="flex gap-2">
+                  <span className="font-semibold">•</span>
+                  <span>
+                    <strong>Filter Results:</strong> Refine your search using price range, number
+                    of stops, trip type, or preferred airline.
+                  </span>
+                </li>
+
+                <li className="flex gap-2">
+                  <span className="font-semibold">•</span>
+                  <span>
+                    <strong>View Flight Details:</strong> Click on a flight card to see full details,
+                    including airline, duration, stops, and price.
+                  </span>
+                </li>
+
+                <li className="flex gap-2">
+                  <span className="font-semibold">•</span>
+                  <span>
+                    <strong>Analyze Prices:</strong> Use the chart to quickly compare average
+                    prices between airlines.
+                  </span>
+                </li>
+              </ul>
+            </section>
+
+            {/* Section */}
+            <section>
+              <h2
+                className="text-xl md:text-2xl font-semibold mb-3"
+                style={{ color: colors.secondary }}
+              >
+                Troubleshooting & Support
+              </h2>
+
+              <p className="text-gray-700 leading-relaxed mb-3">
+                If you experience any issues, please ensure your internet connection is stable
+                and try refreshing the page. Double-check your search parameters if no flights
+                appear.
+              </p>
+
+              <p className="text-gray-700 leading-relaxed">
+                This project is a demonstration application. For bug reports or improvements,
+                please contact the developer or refer to the source code repository.
+              </p>
+            </section>
+
+            {/* Footer note */}
+            <div className="pt-6 border-t text-center">
+              <p className="text-sm text-gray-500">
+                Thank you for using our Flight Search Engine ✈️
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <Footer />
     </div>
   );
-};
-
-export default HelpPage;
+}

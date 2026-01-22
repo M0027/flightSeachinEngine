@@ -11,13 +11,7 @@ export function EmptyFlightsState({
         flex flex-col items-center justify-center py-20 px-6 text-center animate-fadeIn"
     >
       <div
-        className="
-          mb-6
-          flex items-center justify-center
-          h-16 w-16
-          rounded-full
-          bg-blue-50
-        "
+        className="mb-6 flex items-center justify-centerh-16 w-16 rounded-full bg-blue-50"
       >
         <PlaneTakeoff className="h-8 w-8 text-blue-600" />
       </div>
@@ -51,7 +45,7 @@ export function EmptyFlightsState({
         </button>
 
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={() => window.location.href = "/"}
           className="
             inline-flex items-center justify-center
             rounded-xl

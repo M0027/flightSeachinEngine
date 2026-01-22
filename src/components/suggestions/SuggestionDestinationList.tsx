@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { SuggestionDestinationCard } from './SuggestionDestinationCard';
 import { SuggestionDestinationCardSkeleton } from './SuggestionDestinationCardSkeleton';
-import {destinations} from'../../../data/destinations'
+import {destinations} from'../../../src/statics/MostVisitedDestinations';
 export function SuggestionDestinationList() {
   const [loading, setLoading] = useState(true);
 

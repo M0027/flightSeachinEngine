@@ -7,9 +7,19 @@ import { IdaEVola } from '../../src/components/filters/IdaEVola'
 import { PriceFilter } from '../../src/components/filters/PriceFilter'
 import { StopsFilter } from '../../src/components/filters/StopsFilter'
 import FlightBarChart from '../../src/components/FlightBarChart/flightBarChart'
-
+import { applyFilters } from '../../src/filters/applyFilters'
+import { useFlightStore } from '../../src/store/useFlightStore'
 
 export default function ListarPage() {
+
+  const flights = useFlightStore((s) => s.flights);
+  const filters = useFlightStore((s) => s.filters);
+
+  const visibleFlights = applyFilters(flights, filters)
+
+
+
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -30,12 +40,7 @@ export default function ListarPage() {
             </h3>
 
             <div
-              className="
-        grid grid-cols-1
-        sm:grid-cols-2
-        lg:grid-cols-3
-        gap-4
-      "
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
             >
               <IdaEVola />
               <PriceFilter />
@@ -45,11 +50,18 @@ export default function ListarPage() {
           </div>
 
           {/* chart — Chart */}
-          <div
-            className=" bg-white rounded-2xl  p-6 shadow-sm hover:shadow-md transition-shadow duration-300 lg:col-span-1"
-          >
-            <FlightBarChart />
-          </div>
+
+          {
+            visibleFlights && visibleFlights.length > 0 ? (
+              <div
+                className=" bg-white rounded-2xl  p-6 shadow-sm hover:shadow-md transition-shadow duration-300 lg:col-span-1"
+              >
+                <FlightBarChart />
+              </div>
+            ) : null    }
+            
+          
+
         </div>
 
 
