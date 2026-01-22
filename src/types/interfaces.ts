@@ -14,6 +14,8 @@ export interface Flight {
   id: number;
   price: number;
   stops: number;
+  flightNumber: string;
+  arrivalTime: string;
   airline: string;
   departure: string;
   arrival: string;
@@ -28,3 +30,15 @@ export interface Filters {
   airline: string | "all";
   tripType: "oneway" | "roundtrip" | string;
 }
+
+
+export interface SearchValues  {
+  origin: string;
+  destination: string;
+  date: string;
+  passengers: number;
+};
+
+export interface SearchFormProps {
+  values: SearchValues;
+};

@@ -11,18 +11,19 @@ export default function Header() {
     <>
       {/* HEADER */}
       <header
-        className="flex items-center justify-between px-4 py-3"
+        className="flex items-center justify-between px-4 py-4"
         style={{ backgroundColor: colors.primary }}
       >
-        <h1 className="text-white font-bold text-lg">
-          FlightNow
+        <h1 className="text-white font-bold font-roboto text-xl">
+          MacFlight
         </h1>
 
         {/* Desktop menu */}
         <nav className="hidden md:flex gap-6 text-white">
-          <a href="/" className="hover:opacity-80 cursor-pointer">Home</a>
-          <a href="/searchFlight" className="hover:opacity-80 cursor-pointer">Search</a>
-          <a href="" className="hover:opacity-80 cursor-pointer">About</a>
+          <a href="/" className="hover:opacity-80 font-roboto cursor-pointer">Flights</a>
+          <a href="/airlines" className="hover:opacity-80 font-roboto cursor-pointer">Airlines</a>
+          <a href="/about" className="hover:opacity-80 font-roboto cursor-pointer">About</a>
+          <a href="/help" className="hover:opacity-80 font-roboto cursor-pointer">Help</a>
           </nav>
 
         {/* Mobile menu button */}
@@ -53,10 +54,11 @@ export default function Header() {
           </button>
 
           {/* Menu items */}
-          <nav className="mt-20 flex flex-col gap-6 px-6 text-white text-lg">
-            <a href="/" className="border-b border-white/20 pb-2">Home</a>
-            <a href="/searchFlight/" className="border-b border-white/20 pb-2">Search</a>
-            <a href="/" className="border-b border-white/20 pb-2">Sobre</a>
+          <nav className="mt-20 flex font-roboto flex-col gap-6 px-6 text-white text-lg">
+            <a href="/" className="border-b font-roboto border-white/20 pb-2">Flights</a>
+            <a href="/airlines" className="border-b font-roboto border-white/20 pb-2">Airlines</a>
+            <a href="/about/" className="border-b font-roboto border-white/20 pb-2">About</a>
+            <a href="/help" className="border-b font-roboto border-white/20 pb-2">help</a>
           </nav>
         </div>
       )}

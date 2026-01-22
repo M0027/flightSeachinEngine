@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import axios from "axios";
 
 export async function POST() {
+
+
     try {
         const response = await axios.post(
             `${process.env.AMADEUS_BASE_URL}/v1/security/oauth2/token`,

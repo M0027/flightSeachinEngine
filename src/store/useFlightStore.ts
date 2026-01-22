@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import {SearchParams}  from "../types/interfaces";
+import {Flight, SearchParams}  from "../types/interfaces";
 import { Filters } from "../types/interfaces";
 
 
@@ -21,7 +21,7 @@ interface FlightStore {
 }
 
 export const useFlightStore = create<FlightStore>((set) => ({
-  searchParams: { origin: "", destination: "", departureDate: "" },
+  searchParams: { origin: "", destination: "", departureDate: "", adults: 1 },
   flights: [],
   filters: {
     priceRange: [0, 2000], // Default max price

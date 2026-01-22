@@ -8,14 +8,14 @@ export function AirlineFilter() {
 
   return (
     <div>
-      <label>airlines</label>
-      <select
+      <label className="block text-lg font-medium text-gray-700 mb-1">airlines</label>
+      <select className="outline-0"
         value={filters.airline}
         onChange={(e) =>
           setFilters({ ...filters, airline: e.target.value })
         }
       >
-        <option value="all">All</option>
+        <option className="text-lg" value="all">All</option>
         {airlines.map((airline) => (
           <option key={airline} value={airline}>
             {airline}

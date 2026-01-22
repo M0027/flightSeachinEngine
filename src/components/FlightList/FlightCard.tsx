@@ -92,9 +92,9 @@ export function FlightCard({ flight }: { flight: Flight }) {
         style={{
           marginTop: 14,
           width: "100%",
-          background: colors.primary,
+          background: colors.tertiary,
           color: colors.secondary,
-          padding: 12,
+          padding: 8,
           borderRadius: 10,
           border: "none",
           fontWeight: 600,

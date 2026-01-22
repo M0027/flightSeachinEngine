@@ -15,13 +15,22 @@ async function getAccessToken() {
     return accessToken;
   }
 
-  const response = await axios.post("/api/amadeus/token");
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+  const response = await axios.post(`${baseUrl}/api/amadeus/token`);
 
   accessToken = response.data.access_token;
   tokenExpiration = Date.now() + response.data.expires_in * 1000;
-
+  
+  console.log("token de access:", accessToken)
   return accessToken;
 }
+
+
+(async () => {
+  const token = await getAccessToken();
+  console.log("token de access:", token);
+})();
+
 
 
 /**
@@ -74,6 +83,8 @@ export async function searchFlights({
   departureDate: string;
   adults?: number;
 }) {
+
+  
   try {
     const response = await amadeusClient.get("/v2/shopping/flight-offers", {
       params: {
@@ -81,10 +92,10 @@ export async function searchFlights({
         destinationLocationCode: destination,
         departureDate,
         adults,
-        max: 5, // Limite para teste
+        max: 10, // Limite para teste
       },
     });
-
+    
     return response.data;
   } catch (error) {
     console.error("Erro ao buscar voos:", error);

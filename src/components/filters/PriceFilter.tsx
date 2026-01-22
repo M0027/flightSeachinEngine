@@ -7,7 +7,7 @@ export function PriceFilter() {
 
   return (
     <div style={{ marginBottom: 16 }}>
-      <label>max price: {filters.priceRange?.[1] ?? 0}€</label>
+      <label className="text-lg font-bold text-gray-500">max price: {filters.priceRange?.[1] ?? 0}€</label>
       <input
         type="range"
         min={0}

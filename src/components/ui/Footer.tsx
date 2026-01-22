@@ -17,10 +17,10 @@ export default function Footer() {
       >
         {/* BRAND */}
         <div>
-          <h2 className="text-xl font-bold mb-2">
+          <h2 className="text-xl font-bold font-roboto mb-2">
             FlightNow
           </h2>
-          <p className="text-sm opacity-80 leading-relaxed">
+          <p className="text-sm font-roboto opacity-80 leading-relaxed">
             Find the best flights quickly,
             with clarity and transparent prices.
           </p>
@@ -28,12 +28,20 @@ export default function Footer() {
 
         {/* LINKS */}
         <div>
-          <h3 className="font-semibold mb-3">
+          <h3 className="font-semibold font-roboto mb-3">
             Navigation
           </h3>
           <ul className="space-y-2 text-sm opacity-90">
-            <li className="hover:opacity-70 cursor-pointer">Search flights</li>
-            <li className="hover:opacity-70 cursor-pointer">fiter flights</li>
+            <li>
+              <a href="/searchFlight" className="hover:opacity-70 font-roboto cursor-pointer">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="/help" className="hover:opacity-70 font-roboto cursor-pointer">
+                Help
+              </a>
+            </li>
             {/* <li className="hover:opacity-70 cursor-pointer">Account</li> */}
           </ul>
         </div>
@@ -44,7 +52,7 @@ export default function Footer() {
             Information
           </h3>
           <ul className="space-y-2 text-sm opacity-90">
-            <li className="hover:opacity-70 cursor-pointer">About</li>
+            {/* <li className="hover:opacity-70 cursor-pointer">About</li> */}
             <li className="hover:opacity-70 cursor-pointer">Privacy</li>
             <li className="hover:opacity-70 cursor-pointer">Terms</li>
           </ul>
@@ -60,7 +68,7 @@ export default function Footer() {
           py-4
         "
       >
-        © {new Date().getFullYear()} FlightNow — All rights reserved
+        © {new Date().getFullYear()} MacFlight — All rights reserved
       </div>
     </footer>
   );

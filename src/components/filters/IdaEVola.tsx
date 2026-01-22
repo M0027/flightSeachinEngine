@@ -7,7 +7,7 @@ export function IdaEVola() {
 
   return (
     <div style={{ display: "flex", gap: 12 }}>
-      <button className="px-2 py-1 rounded-l"
+      <button className="px-2 py-1 rounded-l text-lg font-bold"
         onClick={() =>
           setFilters({ ...filters, tripType: "oneway" })
         }
@@ -23,11 +23,11 @@ export function IdaEVola() {
           
         }}
       >
-       oneway
+       One way
       </button>
 
       <button
-      className="px-2 py-1 rounded-l"
+      className="px-2 py-1 rounded-l  text-lg font-bold"
         onClick={() =>
           setFilters({ ...filters, tripType: "roundtrip" })
         }
@@ -42,7 +42,7 @@ export function IdaEVola() {
           : colors.primary
         }}
       >
-        roundtrip
+        Roundtrip
       </button>
     </div>
   );

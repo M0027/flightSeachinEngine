@@ -12,12 +12,12 @@ export function StopsFilter() {
 
   return (
     <div>
-      <label>Stops:</label>
-      <select value={filters.stops} onChange={handleChange}>
-        <option value="all">all</option>
-        <option value="0">Diretc</option>
-        <option value="1">1 stop</option>
-        <option value="2">2+ stops</option>
+      <label className="font-bold text-gray-500">Stops:</label>
+      <select className="outline-none " value={filters.stops} onChange={handleChange}>
+        <option className="font-bold text-gray-400" value="all">all</option>
+        <option className="font-bold text-gray-400" value="0">Diretc</option>
+        <option className="font-bold text-gray-400" value="1">1 stop</option>
+        <option className="font-bold text-gray-400" value="2">2+ stops</option>
       </select>
     </div>
   );
