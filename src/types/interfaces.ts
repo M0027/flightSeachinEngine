@@ -8,7 +8,7 @@ export interface SearchParams {
 }
 
 export interface Flight {
-  id: number;
+  id: string | number;
   price: number;
   stops: number;
   flightNumber: string;
@@ -19,6 +19,7 @@ export interface Flight {
   duration: string;
   departureTime: string;
   returnDate?: string | null;
+  currency?: string | null;
 }
 
 export interface Filters {

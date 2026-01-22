@@ -28,7 +28,7 @@ const gridStyle = {
   if (loading) {
     return (
       <div style={gridStyle}>
-        {[1, 2, 3].map((i) => (
+        {[1, 2, 3, 4].map((i) => (
           <FlightSkeleton key={i} />
         ))}
       </div>
